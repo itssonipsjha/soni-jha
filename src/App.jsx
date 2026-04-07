@@ -38,6 +38,15 @@ const Typewriter = ({ strings }) => {
 
 export default function App() {
 
+  const skillsData = [
+    { category: "Web & UI Automation", icon: "🌐", skills: ["Playwright", "Cypress", "Selenium WebDriver", "Appium", "Katalon Studio"] },
+    { category: "API & Backend Testing", icon: "⚡", skills: ["Postman", "REST Assured", "SoapUI", "Karate", "GraphQL Testing"] },
+    { category: "AI & Next-Gen QA", icon: "🤖", skills: ["Applitools (Visual AI)", "GitHub Copilot", "Testim.io", "ChatGPT Prompts", "Mabl"] },
+    { category: "Test Management & DevOps", icon: "⚙️", skills: ["Jira / Xray", "TestRail", "Jenkins / GitHub Actions", "Docker", "Agile / Scrum"] },
+    { category: "Performance & Security", icon: "🛡️", skills: ["JMeter", "K6", "OWASP ZAP", "LoadRunner", "SonarQube"] },
+    { category: "Data Science & Analytics", icon: "📊", skills: ["Python (Pandas, NumPy)", "PostgreSQL / SQL", "Tableau", "Machine Learning", "Time Series"] }
+  ];
+
   const projectsData = [
     {
       title: "Predicting Probability of Credit Card Default",
@@ -164,6 +173,14 @@ export default function App() {
         transition={{ duration: 1 }}
       >
         <div className="hero-text">
+          <motion.div 
+             className="status-badge"
+             initial={{ opacity: 0, scale: 0.5 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 0.5 }}
+          >
+             <div className="status-dot"></div> Available for Work
+          </motion.div>
           <motion.h1 
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -239,7 +256,7 @@ export default function App() {
         viewport={{ once: true, amount: 0.1 }}
         variants={fadeIn}
       >
-        <h2 className="section-title">Experience</h2>
+        <h2 className="section-title">Work Experience</h2>
         <div className="timeline">
           <div className="timeline-item">
             <div className="timeline-dot"></div>
@@ -292,11 +309,17 @@ export default function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
+        variants={fadeIn}
       >
-        <motion.h2 variants={fadeIn} className="section-title">Academic & Technical Projects</motion.h2>
+        <h2 className="section-title" style={{ marginBottom: '20px' }}>Academic & Technical Projects</h2>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <p style={{ color: 'var(--text-light)', fontSize: '1.1rem' }}>
+            Explore my comprehensive capstones at my <a href="https://olympus.mygreatlearning.com/eportfolio" target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none' }}>Great Learning E-Portfolio ↗</a>
+          </p>
+        </div>
         
         <div className="projects-grid">
-          {projectsData.map((project, idx) => (
+          {projectsData.slice(0, 6).map((project, idx) => (
             <motion.div 
               key={idx} 
               className="glass-card project-card" 
@@ -315,6 +338,7 @@ export default function App() {
                   </div>
                 </div>
                 <p style={{margin: '15px 0', fontSize: '0.95rem'}}>{project.desc}</p>
+                <a href={project.link || "https://olympus.mygreatlearning.com/eportfolio"} target="_blank" rel="noreferrer" className="know-more-link">Know More →</a>
               </div>
               <div className="skill-tags">
                 {project.tags.map((tag, tIdx) => (
@@ -324,6 +348,18 @@ export default function App() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          style={{ textAlign: 'center', marginTop: '70px', paddingBottom: '20px' }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <a href="https://olympus.mygreatlearning.com/eportfolio" target="_blank" rel="noreferrer" className="btn primary-btn pulse-glow" style={{ fontSize: '1.2rem', padding: '18px 45px' }}>
+            <span role="img" aria-label="sparkles">✨</span> Unlock All {projectsData.length} Projects on E-Portfolio
+          </a>
+        </motion.div>
       </motion.section>
 
       <motion.section 
@@ -334,24 +370,30 @@ export default function App() {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        <h2 className="section-title">Technical Expertise</h2>
-        <div className="skills-container">
-          <div className="glass-card skill-category">
-            <h3>Testing & QA</h3>
-            <div className="skill-tags">
-              {['Selenium', 'Cypress', 'JUnit / TestNG', 'Postman', 'CI/CD Pipelines'].map(skill => (
-                <span key={skill} className="tag">{skill}</span>
-              ))}
-            </div>
-          </div>
-          <div className="glass-card skill-category">
-            <h3>Data Analysis</h3>
-            <div className="skill-tags">
-              {['SQL / PostgreSQL', 'Python (Pandas, NumPy)', 'Tableau / PowerBI', 'Excel', 'Data Visualization', 'Machine Learning', 'Time Series Forecasting'].map(skill => (
-                <span key={skill} className="tag">{skill}</span>
-              ))}
-            </div>
-          </div>
+        <h2 className="section-title">Technical Arsenal</h2>
+
+        <div className="bento-skills-grid">
+          {skillsData.map((group, idx) => (
+             <motion.div 
+               key={idx} 
+               className="glass-card skill-bento-card"
+               whileHover={{ y: -5, boxShadow: '0 20px 40px -10px rgba(79, 70, 229, 0.2)' }}
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.4, delay: idx * 0.1 }}
+             >
+                <div className="skill-bento-header">
+                  <span className="skill-bento-icon" role="img" aria-label="icon">{group.icon}</span>
+                  <h3>{group.category}</h3>
+                </div>
+                <div className="skill-tags">
+                  {group.skills.map(skill => (
+                    <span key={skill} className="bento-tag">{skill}</span>
+                  ))}
+                </div>
+             </motion.div>
+          ))}
         </div>
       </motion.section>
 

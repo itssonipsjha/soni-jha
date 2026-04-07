@@ -43,7 +43,6 @@ export default function App() {
     { category: "API & Backend Testing", icon: "⚡", skills: ["Postman", "REST Assured", "SoapUI", "Karate", "GraphQL Testing"] },
     { category: "AI & Next-Gen QA", icon: "🤖", skills: ["Applitools (Visual AI)", "GitHub Copilot", "Testim.io", "ChatGPT Prompts", "Mabl"] },
     { category: "Test Management & DevOps", icon: "⚙️", skills: ["Jira / Xray", "TestRail", "Jenkins / GitHub Actions", "Docker", "Agile / Scrum"] },
-    { category: "Performance & Security", icon: "🛡️", skills: ["JMeter", "K6", "OWASP ZAP", "LoadRunner", "SonarQube"] },
     { category: "Data Science & Analytics", icon: "📊", skills: ["Python (Pandas, NumPy)", "PostgreSQL / SQL", "Tableau", "Machine Learning", "Time Series"] }
   ];
 

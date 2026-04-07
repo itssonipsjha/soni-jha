@@ -228,7 +228,7 @@ export default function App() {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <div className="image-wrapper">
-            <img src="/avatar.png" alt="Soni Jha - Professional Avatar" />
+            <img src="./avatar.png" alt="Soni Jha - Professional Avatar" />
           </div>
         </motion.div>
       </motion.header>
@@ -275,7 +275,7 @@ export default function App() {
                 </ul>
               </div>
               <div className="experience-image-half">
-                <img src="/testing_avatar.png" alt="Testing Graphic" />
+                <img src="./testing_avatar.png" alt="Testing Graphic" />
               </div>
             </motion.div>
           </div>
@@ -296,7 +296,7 @@ export default function App() {
                 </ul>
               </div>
               <div className="experience-image-half">
-                <img src="/data_avatar.png" alt="Data Analysis Graphic" />
+                <img src="./data_avatar.png" alt="Data Analysis Graphic" />
               </div>
             </motion.div>
           </div>
